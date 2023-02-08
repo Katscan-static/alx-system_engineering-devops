@@ -1,0 +1,1 @@
+these are shell basics
