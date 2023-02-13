@@ -1,2 +1,2 @@
 #!/bin/bash
-uniq -c|sort -k 1 -t '	' -r| cut -d '	'  -f2
+cut -d '	'  -f1|uniq -c| sort -r| cut -d ' ' -f2
