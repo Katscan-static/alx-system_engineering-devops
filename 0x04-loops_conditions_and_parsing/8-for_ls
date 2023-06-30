@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# print all file names using - as a delimeter and getting the second element
+for file in *
+do
+	if [[ ! "$file" == .* ]]
+	then
+		filename=$(echo "$file" | cut -d '-' -f2-)
+		echo "$filename"
+	fi
+done
