@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #Kill a process that has been startd
 pid=$(pgrep -f "4-to_infinity_and_beyond")
-if [ -z "$pid"]
+if [ -z "$pid" ]
 then
 	echo "process not found"
 else
