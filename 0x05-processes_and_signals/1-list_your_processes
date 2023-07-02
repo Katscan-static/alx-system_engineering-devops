@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 # a command that prints current running processes
-ps axo user,pid,%cpu,%mem,vsz,rss,tty,stat,start,time,command
+ps axo user,pid,%cpu,%mem,vsz,rss,tty,stat,start,time,command --forest
