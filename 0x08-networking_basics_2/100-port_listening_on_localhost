@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# listen to port 89 using nc
+nc -l 98
