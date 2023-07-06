@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# print tcp and udp listening connection
+netstat -lp
