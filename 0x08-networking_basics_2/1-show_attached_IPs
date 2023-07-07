@@ -1,4 +1,4 @@
-#!/usr/bin/
+#!/usr/bin/env bash
 # Get the hostname of the machine
 hostname=$(hostname)
 ip_addresses=$(getent hosts "$hostname" | awk '{print $1}')
