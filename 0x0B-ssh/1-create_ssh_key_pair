@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# create a private and public key pair
+
+private_key="school"
+ssh-keygen -t rsa -b 4096 -f "$private_key" -N "betty"
