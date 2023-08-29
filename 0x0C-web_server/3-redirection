@@ -1,25 +1,5 @@
 #!/usr/bin/env bash
-# install nginx to the server
-nginx_config="server {
-    listen 80 default_server;
-    listen [::]:80 default_server;
-
-    root /var/www/html;
-    index index.html;
-
-    location / {
-        try_files \$uri \$uri/ =404;
-    }
-
-    location = / {
-        return 200 \"Hello World!\n\";
-    }
-
-    location = /redirect_me {
-	return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4
-    }
-}"
-
-echo "$nginx_config" | sudo tee /etc/nginx/sites-available/default > /dev/null
-
+# add a redirect_me path
+add_redirectme="\n\tlocation /redirect_me {\n\t\treturn 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;\n\t}\n"
+sudo sed -i "\$i\\$add_redirectme" /etc/nginx/sites-available/default
 sudo service nginx restart
