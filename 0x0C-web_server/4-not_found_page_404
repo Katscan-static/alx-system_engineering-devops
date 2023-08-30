@@ -13,7 +13,7 @@ server_setup="server {
 		index index.html;
 }"
 add_redirect="\n\tlocation /redirect_me {\n\t\treturn 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;\n\t}"
-add_404="\n\terror_page 404 /404.html;\n\tlocation = /404.html{\n\t\tinternal; \n\treturn 404;\n\t}"
+add_404="\n\terror_page 404 /404.html;\n\tlocation = /404.html{\n\t\tinternal;\n\t}"
 echo "$server_setup" | sudo tee /etc/nginx/sites-available/default >/dev/null
 sed -i "\$i\\$add_redirect" /etc/nginx/sites-available/default
 sed -i "\$i\\$add_404" /etc/nginx/sites-available/default
