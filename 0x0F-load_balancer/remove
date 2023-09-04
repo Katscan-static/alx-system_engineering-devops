@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+sudo apt-get update
+sudo apt-get remove -y haproxy
+sudo apt-get purge -y haproxy
+sudo apt-get auto-remove -y
