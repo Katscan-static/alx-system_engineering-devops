@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+# Install and setup nginx server
+sudo apt-get update
+sudo apt-get -y install nginx
+echo "Hello World!" > /var/www/html/index.html
+echo "Ceci n'est pas une page
+" > /var/www/html/404.html
+server_setup="server {
+                listen 80 default_server;
+                listen [::]:80 default_server;
+
+                root /var/www/html;
+                index index.html;
+}"
+add_redirect="\n\tlocation /redirect_me {\n\t\treturn 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;\n\t}"
+add_404="\n\terror_page 404 /404.html;\n\tlocation = /404.html{\n\t\tinternal;\n\t}"
+add_header="\n\tadd_header X-Served-By $(whoami);"
+echo "$server_setup" | sudo tee /etc/nginx/sites-available/default >/dev/null
+sudo sed -i "\$i\\$add_redirect" /etc/nginx/sites-available/default
+sudo sed -i "\$i\\$add_404" /etc/nginx/sites-available/default
+sudo sed -i "\$i\\$add_header" /etc/nginx/sites-available/default
+sudo service nginx restart
