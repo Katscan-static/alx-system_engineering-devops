@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# start nginx if it's not running
+if ! pgrep nginx > /dev/null; then
+	service nginx start
+fi
