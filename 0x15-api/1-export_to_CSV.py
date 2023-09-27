@@ -21,20 +21,18 @@ if __name__ == "__main__":
     todos_response = requests.get("{}/todos?userId={}".format(base_url,
                                   employee_id))
     todos_data = todos_response.json()
-    print(todos_data)
     csv_filename = "{}.csv".format(user_data["id"])
     with open(csv_filename, mode='w', newline="") as csv_file:
         fieldnames = ["USER_ID",
                       "USERNAME",
                       "TASK_COMPLETED_STATUS",
                       "TASK_TITLE"]
-        writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
-        writer.writeheader()
+        writer = csv.writer(csv_file)
 
         for task in todos_data:
-            writer.writerow({
-                "USER_ID": user_data["id"],
-                "USERNAME": user_data["username"],
-                "TASK_COMPLETED_STATUS": task["completed"],
-                "TASK_TITLE": task["title"]
-                })
+            writer.writerow([
+                '{}'.format(user_data["id"]),
+                '{}'.format(user_data["username"]),
+                '{}'.format(task["completed"]),
+                '{}'.format(task["title"])
+                ])
