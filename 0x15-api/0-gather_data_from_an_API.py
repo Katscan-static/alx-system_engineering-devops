@@ -24,8 +24,8 @@ if __name__ == "__main__":
     total_todos = len(todos_data)
     completed_tasks = [todo for todo in todos_data if todo["completed"]]
     num_ct = len(completed_tasks)
-    print("Employee {} is done with tasks({}/{}:".format(user_data["name"],
+    print("Employee {} is done with tasks({}/{}):".format(user_data["name"],
           num_ct,
           total_todos))
     for task in completed_tasks:
-        print("\t{}".format(task["title"]))
+        print("\t {}".format(task["title"]))
