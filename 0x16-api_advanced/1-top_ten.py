@@ -29,6 +29,6 @@ def top_ten(subreddit):
                 print(title)
 
         except KeyError:
-                print(None)
+            print(None)
     else:
         print(None)
